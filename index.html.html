@@ -1,0 +1,1018 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Madeline Mae Consulting LLC | Property Operations Consulting</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --forest: #1a3d2b;
+    --forest-mid: #2e6b4a;
+    --forest-light: #4a9068;
+    --sage: #8aab97;
+    --cream: #f7f4ef;
+    --warm-white: #fdfcfa;
+    --gold: #c9a84c;
+    --ink: #1a1a18;
+    --muted: #666660;
+    --border: rgba(26,61,43,0.12);
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--warm-white);
+    color: var(--ink);
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.25rem 5%;
+    background: rgba(253,252,250,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 0.5px solid var(--border);
+  }
+
+  .nav-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--forest);
+    letter-spacing: 0.02em;
+    line-height: 1.2;
+  }
+  .nav-logo span {
+    display: block;
+    font-size: 0.6rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--sage);
+  }
+
+  .nav-links { display: flex; gap: 2.5rem; align-items: center; }
+  .nav-links a {
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--forest); }
+
+  .nav-cta {
+    font-size: 0.75rem !important;
+    letter-spacing: 0.12em !important;
+    color: var(--forest) !important;
+    border: 1px solid var(--forest) !important;
+    padding: 0.5rem 1.25rem;
+    border-radius: 2px;
+    transition: background 0.2s, color 0.2s !important;
+  }
+  .nav-cta:hover { background: var(--forest) !important; color: var(--warm-white) !important; }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding-top: 80px;
+  }
+
+  .hero-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 5% 6% 5% 8%;
+    background: var(--warm-white);
+  }
+
+  .hero-eyebrow {
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--forest-mid);
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  .hero-eyebrow::before {
+    content: '';
+    display: block;
+    width: 32px;
+    height: 1px;
+    background: var(--gold);
+  }
+
+  .hero-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(3rem, 5vw, 5rem);
+    font-weight: 300;
+    line-height: 1.08;
+    color: var(--forest);
+    margin-bottom: 1.75rem;
+    letter-spacing: -0.01em;
+  }
+  .hero-title em {
+    font-style: italic;
+    font-weight: 300;
+    color: var(--forest-mid);
+  }
+
+  .hero-body {
+    font-size: 1rem;
+    line-height: 1.75;
+    color: var(--muted);
+    max-width: 440px;
+    margin-bottom: 2.5rem;
+    font-weight: 300;
+  }
+
+  .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; align-items: center; }
+
+  .btn-primary {
+    background: var(--forest);
+    color: var(--warm-white);
+    padding: 0.85rem 2rem;
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 2px;
+    transition: background 0.2s;
+  }
+  .btn-primary:hover { background: var(--forest-mid); }
+
+  .btn-ghost {
+    color: var(--forest);
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: gap 0.2s;
+  }
+  .btn-ghost:hover { gap: 0.85rem; }
+  .btn-ghost::after { content: '→'; }
+
+  .hero-right {
+    background: var(--forest);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 5%;
+  }
+
+  .hero-pattern {
+    position: absolute;
+    inset: 0;
+    opacity: 0.07;
+    background-image:
+      repeating-linear-gradient(0deg, transparent, transparent 39px, rgba(255,255,255,0.5) 39px, rgba(255,255,255,0.5) 40px),
+      repeating-linear-gradient(90deg, transparent, transparent 39px, rgba(255,255,255,0.5) 39px, rgba(255,255,255,0.5) 40px);
+  }
+
+  .hero-stat-grid {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.1);
+  }
+
+  .hero-stat {
+    padding: 2rem 1.5rem;
+    background: rgba(255,255,255,0.03);
+  }
+
+  .hero-stat-num {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 3rem;
+    font-weight: 300;
+    color: var(--warm-white);
+    line-height: 1;
+    margin-bottom: 0.4rem;
+  }
+  .hero-stat-label {
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--sage);
+    font-weight: 300;
+  }
+
+  .hero-quote {
+    position: relative;
+    padding: 2rem;
+    margin-bottom: 1px;
+    background: rgba(255,255,255,0.03);
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+  .hero-quote p {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem;
+    font-weight: 300;
+    font-style: italic;
+    color: rgba(255,255,255,0.75);
+    line-height: 1.5;
+  }
+  .hero-quote-mark {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 4rem;
+    color: var(--gold);
+    line-height: 0.5;
+    display: block;
+    margin-bottom: 0.5rem;
+    opacity: 0.6;
+  }
+
+  /* ── INTRO ── */
+  .intro {
+    padding: 7rem 8%;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 5rem;
+    align-items: start;
+    border-top: 0.5px solid var(--border);
+  }
+
+  .intro-label {
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--sage);
+    padding-top: 0.4rem;
+  }
+
+  .intro-content h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.8rem, 3vw, 2.8rem);
+    font-weight: 300;
+    color: var(--forest);
+    line-height: 1.25;
+    margin-bottom: 1.5rem;
+  }
+  .intro-content p {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: var(--muted);
+    font-weight: 300;
+    margin-bottom: 1rem;
+    max-width: 580px;
+  }
+
+  .intro-pillars {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1px;
+    margin-top: 3rem;
+    background: var(--border);
+    border: 0.5px solid var(--border);
+  }
+
+  .pillar {
+    background: var(--warm-white);
+    padding: 1.75rem;
+  }
+  .pillar-icon {
+    width: 32px; height: 32px;
+    border: 1px solid var(--forest-light);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 1rem;
+    color: var(--forest-mid);
+    font-size: 0.9rem;
+  }
+  .pillar h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--forest);
+    margin-bottom: 0.5rem;
+  }
+  .pillar p {
+    font-size: 0.82rem;
+    line-height: 1.65;
+    color: var(--muted);
+    font-weight: 300;
+  }
+
+  /* ── SERVICES ── */
+  .services {
+    background: var(--cream);
+    padding: 7rem 8%;
+    border-top: 0.5px solid var(--border);
+  }
+
+  .section-header {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 5rem;
+    margin-bottom: 4rem;
+    align-items: end;
+  }
+
+  .section-eyebrow {
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--sage);
+    margin-bottom: 0.75rem;
+  }
+
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.8rem, 3vw, 2.8rem);
+    font-weight: 300;
+    color: var(--forest);
+    line-height: 1.2;
+  }
+
+  .section-desc {
+    font-size: 0.95rem;
+    line-height: 1.8;
+    color: var(--muted);
+    font-weight: 300;
+    align-self: end;
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border: 0.5px solid var(--border);
+  }
+
+  .service-card {
+    background: var(--cream);
+    padding: 2.5rem;
+    transition: background 0.25s;
+    cursor: default;
+  }
+  .service-card:hover { background: var(--warm-white); }
+
+  .service-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.85rem;
+    color: var(--gold);
+    letter-spacing: 0.1em;
+    margin-bottom: 1rem;
+    display: block;
+  }
+
+  .service-card h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.45rem;
+    font-weight: 600;
+    color: var(--forest);
+    margin-bottom: 0.85rem;
+    line-height: 1.2;
+  }
+
+  .service-card p {
+    font-size: 0.875rem;
+    line-height: 1.75;
+    color: var(--muted);
+    font-weight: 300;
+  }
+
+  .service-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-top: 1.25rem;
+  }
+
+  .tag {
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--forest-mid);
+    background: rgba(46,107,74,0.08);
+    padding: 0.25rem 0.6rem;
+    border-radius: 1px;
+  }
+
+  /* ── PRICING ── */
+  .pricing {
+    padding: 7rem 8%;
+    border-top: 0.5px solid var(--border);
+  }
+
+  .pricing-inner {
+    display: grid;
+    grid-template-columns: 1fr 1.6fr;
+    gap: 6rem;
+    align-items: center;
+  }
+
+  .pricing-left h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.8rem, 3vw, 2.8rem);
+    font-weight: 300;
+    color: var(--forest);
+    line-height: 1.2;
+    margin-top: 0.75rem;
+    margin-bottom: 1.5rem;
+  }
+  .pricing-left p {
+    font-size: 0.9rem;
+    line-height: 1.8;
+    color: var(--muted);
+    font-weight: 300;
+    margin-bottom: 1rem;
+  }
+
+  .pricing-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    background: var(--border);
+    border: 0.5px solid var(--border);
+  }
+
+  .pricing-row {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    padding: 1.75rem 2rem;
+    background: var(--warm-white);
+    gap: 2rem;
+    transition: background 0.2s;
+  }
+  .pricing-row:hover { background: var(--cream); }
+  .pricing-row:first-child { background: var(--forest); }
+  .pricing-row:first-child:hover { background: var(--forest-mid); }
+
+  .pricing-row-label { font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--sage); margin-bottom: 0.35rem; }
+  .pricing-row h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-weight: 600; color: var(--warm-white); line-height: 1.2; }
+  .pricing-row p { font-size: 0.8rem; color: rgba(255,255,255,0.55); font-weight: 300; margin-top: 0.25rem; line-height: 1.5; }
+
+  .pricing-row-label-dark { font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--sage); margin-bottom: 0.35rem; }
+  .pricing-row h3.dark { color: var(--forest); }
+  .pricing-row p.dark { color: var(--muted); }
+
+  .price-badge {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.2rem;
+    font-weight: 300;
+    color: var(--gold);
+    white-space: nowrap;
+    line-height: 1;
+    text-align: right;
+  }
+  .price-badge.dark { color: var(--forest-mid); }
+  .price-unit {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--sage);
+    display: block;
+    text-align: right;
+    margin-top: 0.25rem;
+  }
+
+  /* ── BUILDIUM SECTION ── */
+  .buildium {
+    background: var(--forest);
+    padding: 6rem 8%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+  }
+
+  .buildium-left h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.8rem, 3vw, 2.8rem);
+    font-weight: 300;
+    color: var(--warm-white);
+    line-height: 1.2;
+    margin-top: 0.75rem;
+    margin-bottom: 1.25rem;
+  }
+  .buildium-left p {
+    font-size: 0.9rem;
+    line-height: 1.8;
+    color: var(--sage);
+    font-weight: 300;
+  }
+
+  .buildium-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.08);
+  }
+
+  .buildium-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1.1rem 1.5rem;
+    background: rgba(255,255,255,0.02);
+    font-size: 0.875rem;
+    line-height: 1.6;
+    color: rgba(255,255,255,0.7);
+    font-weight: 300;
+    transition: background 0.2s;
+  }
+  .buildium-list li:hover { background: rgba(255,255,255,0.05); }
+
+  .check {
+    width: 18px; height: 18px;
+    border: 1px solid var(--gold);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    margin-top: 1px;
+    color: var(--gold);
+    font-size: 0.6rem;
+  }
+
+  /* ── CONTACT ── */
+  .contact {
+    padding: 7rem 8%;
+    border-top: 0.5px solid var(--border);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    align-items: center;
+  }
+
+  .contact-left h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.8rem, 3vw, 2.8rem);
+    font-weight: 300;
+    color: var(--forest);
+    line-height: 1.2;
+    margin-top: 0.75rem;
+    margin-bottom: 1.25rem;
+  }
+  .contact-left p {
+    font-size: 0.9rem;
+    line-height: 1.8;
+    color: var(--muted);
+    font-weight: 300;
+  }
+
+  .contact-form { display: flex; flex-direction: column; gap: 1rem; }
+
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+
+  .form-group { display: flex; flex-direction: column; gap: 0.4rem; }
+
+  .form-group label {
+    font-size: 0.68rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .form-group input,
+  .form-group textarea,
+  .form-group select {
+    background: var(--cream);
+    border: 0.5px solid var(--border);
+    border-radius: 2px;
+    padding: 0.8rem 1rem;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.9rem;
+    color: var(--ink);
+    font-weight: 300;
+    outline: none;
+    transition: border-color 0.2s;
+    width: 100%;
+  }
+
+  .form-group input:focus,
+  .form-group textarea:focus,
+  .form-group select:focus {
+    border-color: var(--forest-mid);
+  }
+
+  .form-group textarea { resize: vertical; min-height: 110px; }
+
+  .form-submit {
+    background: var(--forest);
+    color: var(--warm-white);
+    border: none;
+    padding: 0.9rem 2.25rem;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: background 0.2s;
+    align-self: flex-start;
+  }
+  .form-submit:hover { background: var(--forest-mid); }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--ink);
+    padding: 3rem 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    border-top: 0.5px solid rgba(255,255,255,0.05);
+  }
+
+  .footer-brand {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--warm-white);
+  }
+  .footer-brand span {
+    display: block;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.6rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--sage);
+    font-weight: 300;
+    margin-top: 0.2rem;
+  }
+
+  .footer-links { display: flex; gap: 2rem; }
+  .footer-links a {
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    color: rgba(255,255,255,0.35);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .footer-links a:hover { color: rgba(255,255,255,0.7); }
+
+  .footer-copy {
+    font-size: 0.72rem;
+    color: rgba(255,255,255,0.2);
+    letter-spacing: 0.05em;
+  }
+
+  /* ── FADE-IN ANIMATION ── */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(22px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    .hero { grid-template-columns: 1fr; }
+    .hero-right { min-height: 360px; }
+    .intro, .contact, .buildium, .pricing-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+    .section-header { grid-template-columns: 1fr; gap: 1rem; }
+    .intro-pillars { grid-template-columns: 1fr; }
+    .services-grid { grid-template-columns: 1fr; }
+    .nav-links { display: none; }
+    .form-row { grid-template-columns: 1fr; }
+    footer { flex-direction: column; align-items: flex-start; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">
+    Madeline Mae Consulting
+    <span>Property Operations Consulting</span>
+  </div>
+  <div class="nav-links">
+    <a href="#services">Services</a>
+    <a href="#pricing">Quote</a>
+    <a href="#systems">Systems</a>
+    <a href="#contact" class="nav-cta">Get in Touch</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <p class="hero-eyebrow">Property Administrative Services — Done Personally</p>
+    <h1 class="hero-title">
+      Your portfolio,<br>
+      <em>handled with care.</em>
+    </h1>
+    <p class="hero-body">
+      Madeline Mae Consulting LLC provides dedicated, hands-on property administrative services and operations consulting for residential portfolios. Every client works directly with me — full attention, no hand-offs.
+    </p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn-primary">Work with me</a>
+      <a href="#services" class="btn-ghost">See what I offer</a>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <div class="hero-pattern"></div>
+    <div class="hero-quote">
+      <span class="hero-quote-mark">"</span>
+      <p>When you work with me, you always know who is handling your properties — because it is always me.</p>
+    </div>
+    <div class="hero-stat-grid">
+      <div class="hero-stat">
+        <div class="hero-stat-num">100+</div>
+        <div class="hero-stat-label">Residential Doors</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">1</div>
+        <div class="hero-stat-label">Direct point of contact</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">0</div>
+        <div class="hero-stat-label">Hidden charges</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">0</div>
+        <div class="hero-stat-label">Hand-offs or call centers</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROPERTY TYPES -->
+<section style="border-top: 0.5px solid var(--border); border-bottom: 0.5px solid var(--border); padding: 3rem 8%; background: var(--cream);">
+  <p class="fade-in" style="font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--sage); margin-bottom: 2rem; text-align: center;">Property Types I Work With</p>
+  <div class="fade-in" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 1px; background: var(--border); border: 0.5px solid var(--border);">
+    <div style="background: var(--cream); padding: 1.75rem 1.25rem; text-align: center; transition: background 0.2s;" onmouseover="this.style.background='var(--warm-white)'" onmouseout="this.style.background='var(--cream)'">
+      <div style="font-size: 1.4rem; margin-bottom: 0.6rem;">⌂</div>
+      <p style="font-family: 'Cormorant Garamond', serif; font-size: 1rem; font-weight: 600; color: var(--forest); margin-bottom: 0.3rem;">Single-Family</p>
+      <p style="font-size: 0.72rem; color: var(--muted); font-weight: 300; letter-spacing: 0.04em;">Residential Homes</p>
+    </div>
+    <div style="background: var(--cream); padding: 1.75rem 1.25rem; text-align: center; transition: background 0.2s;" onmouseover="this.style.background='var(--warm-white)'" onmouseout="this.style.background='var(--cream)'">
+      <div style="font-size: 1.4rem; margin-bottom: 0.6rem;">▦</div>
+      <p style="font-family: 'Cormorant Garamond', serif; font-size: 1rem; font-weight: 600; color: var(--forest); margin-bottom: 0.3rem;">Townhomes</p>
+      <p style="font-size: 0.72rem; color: var(--muted); font-weight: 300; letter-spacing: 0.04em;">Attached & Row Units</p>
+    </div>
+    <div style="background: var(--cream); padding: 1.75rem 1.25rem; text-align: center; transition: background 0.2s;" onmouseover="this.style.background='var(--warm-white)'" onmouseout="this.style.background='var(--cream)'">
+      <div style="font-size: 1.4rem; margin-bottom: 0.6rem;">⊞</div>
+      <p style="font-family: 'Cormorant Garamond', serif; font-size: 1rem; font-weight: 600; color: var(--forest); margin-bottom: 0.3rem;">Apartments</p>
+      <p style="font-size: 0.72rem; color: var(--muted); font-weight: 300; letter-spacing: 0.04em;">Multifamily Units</p>
+    </div>
+    <div style="background: var(--cream); padding: 1.75rem 1.25rem; text-align: center; transition: background 0.2s;" onmouseover="this.style.background='var(--warm-white)'" onmouseout="this.style.background='var(--cream)'">
+      <div style="font-size: 1.4rem; margin-bottom: 0.6rem;">✦</div>
+      <p style="font-family: 'Cormorant Garamond', serif; font-size: 1rem; font-weight: 600; color: var(--forest); margin-bottom: 0.3rem;">Student Housing</p>
+      <p style="font-size: 0.72rem; color: var(--muted); font-weight: 300; letter-spacing: 0.04em;">Near Campus Communities</p>
+    </div>
+    <div style="background: var(--cream); padding: 1.75rem 1.25rem; text-align: center; transition: background 0.2s;" onmouseover="this.style.background='var(--warm-white)'" onmouseout="this.style.background='var(--cream)'">
+      <div style="font-size: 1.4rem; margin-bottom: 0.6rem;">◎</div>
+      <p style="font-family: 'Cormorant Garamond', serif; font-size: 1rem; font-weight: 600; color: var(--forest); margin-bottom: 0.3rem;">HOA</p>
+      <p style="font-size: 0.72rem; color: var(--muted); font-weight: 300; letter-spacing: 0.04em;">Community Associations</p>
+    </div>
+  </div>
+</section>
+
+<!-- INTRO -->
+<section class="intro" id="about">
+  <div>
+    <p class="intro-label">About</p>
+  </div>
+  <div class="intro-content fade-in">
+    <h2>A boutique approach to property operations consulting and administrative services.</h2>
+    <p>I am Haley Abrams, founder of Madeline Mae Consulting LLC. I do not run a large firm with call centers and rotating coordinators. Every client works directly with me — so you always know who is handling your portfolio and can always reach the person accountable for it.</p>
+    <p>I bring the same professionalism and systems you would expect from a larger company, without the overhead, the hand-offs, or the gap between who you spoke to and who actually did the work.</p>
+    <div class="intro-pillars">
+      <div class="pillar">
+        <div class="pillar-icon">✦</div>
+        <h3>Personal</h3>
+        <p>You work directly with me — not a coordinator or a call center. I know your tenants, your vendors, and your properties personally.</p>
+      </div>
+      <div class="pillar">
+        <div class="pillar-icon">◈</div>
+        <h3>Transparent</h3>
+        <p>Simple, straightforward pricing. No hidden fees, no markups, no surprises on your monthly statement.</p>
+      </div>
+      <div class="pillar">
+        <div class="pillar-icon">◎</div>
+        <h3>Reliable</h3>
+        <p>Regular updates, prompt responses, and consistent follow-through on every maintenance request and tenant issue.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="section-header fade-in">
+    <div>
+      <p class="section-eyebrow">What I Do</p>
+      <h2 class="section-title">Comprehensive portfolio support, from every door to every detail.</h2>
+    </div>
+    <p class="section-desc">From rent collection to renewal coordination, vendor communication to tenant support — I handle the day-to-day so you do not have to.</p>
+  </div>
+
+  <div class="services-grid fade-in">
+    <div class="service-card">
+      <span class="service-num">01</span>
+      <h3>Leasing & Tenant Management</h3>
+      <p>Supporting the full leasing cycle — from vacancy coordination and tenant screening to move-in and move-out administration and renewal follow-through.</p>
+      <div class="service-tags">
+        <span class="tag">Marketing</span>
+        <span class="tag">Screening</span>
+        <span class="tag">Move-In & Move-Out</span>
+        <span class="tag">Renewals</span>
+      </div>
+    </div>
+    <div class="service-card">
+      <span class="service-num">02</span>
+      <h3>Rent Collection & Ledger Management</h3>
+      <p>Monthly rent collection, tenant ledger updates, payment plan creation and management, and collections follow-up across your full portfolio.</p>
+      <div class="service-tags">
+        <span class="tag">Rent Collection</span>
+        <span class="tag">Ledger Updates</span>
+        <span class="tag">Payment Plans</span>
+        <span class="tag">Collections</span>
+      </div>
+    </div>
+    <div class="service-card">
+      <span class="service-num">03</span>
+      <h3>Vendor & Maintenance Coordination</h3>
+      <p>Whether you already have vendors in place or need help finding reliable contractors, I coordinate all maintenance requests and serve as the direct point of contact between your tenants and your service providers so nothing falls through the cracks.</p>
+      <div class="service-tags">
+        <span class="tag">Existing Vendors</span>
+        <span class="tag">Vendor Sourcing</span>
+        <span class="tag">Maintenance Requests</span>
+        <span class="tag">Invoice Processing</span>
+      </div>
+    </div>
+    <div class="service-card">
+      <span class="service-num">04</span>
+      <h3>Day-to-Day Operations</h3>
+      <p>Tenant communication, lease adherence monitoring, property inspection coordination, and regular reporting — so you always know what is happening across your portfolio.</p>
+      <div class="service-tags">
+        <span class="tag">Tenant Relations</span>
+        <span class="tag">Compliance</span>
+        <span class="tag">Reporting</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing" id="pricing">
+  <div class="pricing-inner">
+    <div class="pricing-left fade-in">
+      <p class="section-eyebrow">Pricing</p>
+      <h2>Tailored to your portfolio. No guesswork.</h2>
+      <p>Every portfolio is different — the number of doors, the systems already in place, the level of support needed. That is why I do not publish a one-size-fits-all rate.</p>
+      <p>Reach out and tell me about your properties. I will put together a straightforward proposal that reflects exactly what you need — with no hidden fees, no markups, and no surprises.</p>
+    </div>
+    <div class="fade-in" style="display: flex; flex-direction: column; justify-content: center; gap: 2rem;">
+      <div style="border: 0.5px solid var(--border); padding: 2.5rem; background: var(--cream);">
+        <p style="font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; font-weight: 300; color: var(--forest); line-height: 1.4; margin-bottom: 1.25rem; font-style: italic;">"Pricing is tailored to each portfolio — get in touch and I will put together a custom proposal for you."</p>
+        <a href="#contact" class="btn-primary" style="display: inline-block;">Request a Custom Quote</a>
+      </div>
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); border: 0.5px solid var(--border);">
+        <div style="background: var(--warm-white); padding: 1.5rem;">
+          <p style="font-size: 0.68rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--sage); margin-bottom: 0.5rem;">Always included</p>
+          <p style="font-size: 0.875rem; color: var(--muted); font-weight: 300; line-height: 1.65;">No setup fees or onboarding costs</p>
+        </div>
+        <div style="background: var(--warm-white); padding: 1.5rem;">
+          <p style="font-size: 0.68rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--sage); margin-bottom: 0.5rem;">Always included</p>
+          <p style="font-size: 0.875rem; color: var(--muted); font-weight: 300; line-height: 1.65;">No markups on vendor invoices</p>
+        </div>
+        <div style="background: var(--warm-white); padding: 1.5rem;">
+          <p style="font-size: 0.68rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--sage); margin-bottom: 0.5rem;">Always included</p>
+          <p style="font-size: 0.875rem; color: var(--muted); font-weight: 300; line-height: 1.65;">Regular reporting and updates</p>
+        </div>
+        <div style="background: var(--warm-white); padding: 1.5rem;">
+          <p style="font-size: 0.68rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--sage); margin-bottom: 0.5rem;">Always included</p>
+          <p style="font-size: 0.875rem; color: var(--muted); font-weight: 300; line-height: 1.65;">Direct access to me, always</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SYSTEMS -->
+<section class="buildium" id="systems">
+  <div class="buildium-left fade-in">
+    <p class="section-eyebrow" style="color: var(--sage);">Systems & Setup</p>
+    <h2>I work in your systems — or help you find the right one.</h2>
+    <p>If you already have a property management platform in place, I will work directly within it — no disruption, no learning curve on your end. If you are not using one yet or are open to a better fit, I will assess your portfolio and recommend the platform that best suits your needs. Either way, before anything else, I conduct a full system audit to make sure everything is accurate and set up correctly going forward.</p>
+  </div>
+  <ul class="buildium-list fade-in">
+    <li><span class="check">✓</span>Work within your existing platform or recommend one that fits your portfolio</li>
+    <li><span class="check">✓</span>Review all property and unit records for accuracy and completeness</li>
+    <li><span class="check">✓</span>Audit all tenant ledgers — correct any misposted charges, credits, or balances</li>
+    <li><span class="check">✓</span>Verify lease dates, rent amounts, and terms against actual agreements</li>
+    <li><span class="check">✓</span>Review owner settings, fee configurations, and disbursement schedules</li>
+    <li><span class="check">✓</span>Confirm vendors, recurring charges, and automated transactions are correct</li>
+    <li><span class="check">✓</span>Identify missing documentation or accounts needing cleanup</li>
+    <li><span class="check">✓</span>Deliver a summary report of all findings and corrections made</li>
+  </ul>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="contact-left fade-in">
+    <p class="section-eyebrow">Get in Touch</p>
+    <h2>Let's talk about your portfolio.</h2>
+    <p>Whether you have a specific question or just want to have a conversation about whether this is the right fit, I would love to hear from you. Fill out the form, or reach out directly.</p>
+    <div style="margin-top: 1.75rem; display: flex; flex-direction: column; gap: 0.85rem;">
+      <a href="tel:3025080144" style="display: flex; align-items: center; gap: 0.75rem; text-decoration: none; color: var(--forest); font-size: 0.95rem; font-weight: 400;">
+        <span style="width: 32px; height: 32px; border: 1px solid var(--forest-light); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; flex-shrink: 0;">✆</span>
+        (302) 508-0144
+      </a>
+    </div>
+  </div>
+  <form class="contact-form fade-in" onsubmit="handleSubmit(event)">
+    <div class="form-row">
+      <div class="form-group">
+        <label for="fname">First Name</label>
+        <input type="text" id="fname" placeholder="John" required>
+      </div>
+      <div class="form-group">
+        <label for="lname">Last Name</label>
+        <input type="text" id="lname" placeholder="Smith" required>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="email">Email Address</label>
+      <input type="email" id="email" placeholder="john@email.com" required>
+    </div>
+    <div class="form-group">
+      <label for="phone">Phone Number</label>
+      <input type="tel" id="phone" placeholder="(302) 555-0100">
+    </div>
+    <div class="form-group">
+      <label for="units">Number of Units</label>
+      <select id="units">
+        <option value="">Select range</option>
+        <option>1–10 units</option>
+        <option>11–25 units</option>
+        <option>26–50 units</option>
+        <option>50+ units</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="message">Message</label>
+      <textarea id="message" placeholder="Tell me a little about your portfolio and what you are looking for..."></textarea>
+    </div>
+    <button type="submit" class="form-submit">Send Message</button>
+    <p id="form-success" style="display:none; font-size:0.85rem; color: var(--forest-mid); margin-top:0.5rem;">Thanks! I'll be in touch shortly.</p>
+  </form>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">
+    Madeline Mae Consulting LLC
+    <span>Property Operations Consulting</span>
+  </div>
+  <div class="footer-links">
+    <a href="#services">Services</a>
+    <a href="#pricing">Get a Quote</a>
+    <a href="#systems">Systems & Setup</a>
+    <a href="#contact">Contact</a>
+    <a href="tel:3025080144">(302) 508-0144</a>
+  </div>
+  <p class="footer-copy">© 2025 Madeline Mae Consulting LLC. All rights reserved.</p>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); }
+    });
+  }, { threshold: 0.12 });
+
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    document.getElementById('form-success').style.display = 'block';
+    e.target.reset();
+    setTimeout(() => { document.getElementById('form-success').style.display = 'none'; }, 5000);
+  }
+</script>
+</body>
+</html>
